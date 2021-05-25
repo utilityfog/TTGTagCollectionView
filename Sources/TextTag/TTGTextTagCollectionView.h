@@ -42,8 +42,27 @@
             updateContentSize:(CGSize)contentSize;
 @end
 
+@interface TTGTextTagGradientLabel : UILabel
+@end
+
+@interface TTGTextTagComponentView : UIView
+@property (nonatomic, strong) TTGTextTag *config;
+@property (nonatomic, strong) TTGTextTagGradientLabel *label;
+@property (nonatomic, strong) CAShapeLayer *borderLayer;
+
+- (BOOL)isEqual:(id)other;
+
+- (BOOL)isEqualToComponentView:(TTGTextTagComponentView *)label;
+
+- (NSUInteger)hash;
+@end
+
 /// Main Class
 @interface TTGTextTagCollectionView : UIView
+
+/// Tag Label
+@property (strong, atomic) NSMutableArray <TTGTextTagComponentView *> *tagLabels;
+
 /// Delegate
 @property (weak, nonatomic) id <TTGTextTagCollectionViewDelegate> delegate;
 
@@ -129,3 +148,7 @@
 - (NSInteger)indexOfTagAtPoint:(CGPoint)point;
 
 @end
+
+
+
+

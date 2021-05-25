@@ -14,9 +14,6 @@
 
 #pragma mark - TTGTextTagGradientLabel
 
-@interface TTGTextTagGradientLabel : UILabel
-@end
-
 @implementation TTGTextTagGradientLabel
 + (Class)layerClass {
     return [CAGradientLayer class];
@@ -24,18 +21,6 @@
 @end
 
 #pragma mark - TTGTextTagLabel
-
-@interface TTGTextTagComponentView : UIView
-@property (nonatomic, strong) TTGTextTag *config;
-@property (nonatomic, strong) TTGTextTagGradientLabel *label;
-@property (nonatomic, strong) CAShapeLayer *borderLayer;
-
-- (BOOL)isEqual:(id)other;
-
-- (BOOL)isEqualToComponentView:(TTGTextTagComponentView *)label;
-
-- (NSUInteger)hash;
-@end
 
 @implementation TTGTextTagComponentView
 
@@ -236,7 +221,6 @@
 #pragma mark - TTGTextTagCollectionView
 
 @interface TTGTextTagCollectionView () <TTGTagCollectionViewDataSource, TTGTagCollectionViewDelegate>
-@property (strong, atomic) NSMutableArray <TTGTextTagComponentView *> *tagLabels;
 @property (strong, nonatomic) TTGTagCollectionView *tagCollectionView;
 @end
 
